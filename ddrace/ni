@@ -1,0 +1,7 @@
+#!/bin/sh
+[ $# -lt 3 ] && echo "Usage: ni 19 3 command" >&2 && exit 1
+NICE=$1
+shift
+IONICE=$1
+shift
+exec nice -n $NICE ionice -c $IONICE "$@"

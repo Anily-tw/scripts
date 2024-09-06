@@ -19,8 +19,8 @@ elif [[ ! -e "$base_dir/maps/$mappath.map" ]]; then
     exit
 fi
 
-if [[ $category != "anime" && $category != "souly" && $category != "joni" ]]; then
-    echo "Use 'anime' or 'souly' category"
+if [[ $category != "anime" && $category != "souly" && $category != "joni" && $category != "other" ]]; then
+    echo "Use 'anime', 'souly', 'joni' or 'other' category"
     exit
 fi
 echo "add_vote \"$mapname\" \"sv_reset_file types/$category/flexreset.cfg; change_map \\\"$mappath\\\"\"" >> "$base_dir/types/$category/votes.cfg"

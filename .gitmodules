@@ -1,3 +1,4 @@
 [submodule "ddrace/maps"]
 	path = ddrace/maps
 	url = https://github.com/Anily-tw/maps.git
+	master = master

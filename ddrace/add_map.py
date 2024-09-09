@@ -3,9 +3,19 @@ import sys
 import os
 import mysql.connector
 from mysql.connector import Error
+import json
 import logging
 
-log_file = "/home/souly/servers/add_map.log"
+from announce_map import send_webhook
+
+def load_config(config_file):
+    with open(config_file, 'r') as file:
+        config = json.load(file)
+    return config
+
+config = load_config("config.json")
+
+log_file = f"{config.get("base_dir")}/add_map.log"
 logging.basicConfig(
     filename=log_file,
     level=logging.INFO,
@@ -18,7 +28,7 @@ def main():
         logging.error("Usage: add_map mapname mappath category mapper points stars timestamp")
         sys.exit(1)
 
-    base_dir = '/home/souly/servers'
+    base_dir = config.get("map_announce_url")
 
     mapname = sys.argv[1]
     mappath = sys.argv[2]
@@ -61,6 +71,8 @@ def main():
             connection.commit()
 
             logging.info(f"Map '{mappath}' successfully added to database.")
+
+            send_webhook(mapname, category, mapper, points, stars, config.get("map_announce_url"))
 
             try:
                 with open(f"{base_dir}/types/{category}/votes.cfg", "a") as vote_file:

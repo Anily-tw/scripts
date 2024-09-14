@@ -1,0 +1,2 @@
+0 4 * * * cd $ANILY_DDRACE_ROOT && ./shutdown_empty.sh
+0 4 * * * cd $ANILY_DDRACE_ROOT/maps && ./update.sh

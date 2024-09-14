@@ -1,2 +1,0 @@
-0 4 * * * cd ~/servers && ./shutdown_empty.sh
-0 4 * * * cd ~/servers/maps && ./update.sh

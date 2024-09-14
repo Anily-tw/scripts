@@ -1,28 +1,10 @@
-#!/home/souly/servers/script-venv/bin/python3
+#!/bin/env python3
 import sys
+import os
 import requests
-import json
 import logging
 
-def load_config(config_file):
-    with open(config_file, 'r') as file:
-        config = json.load(file)
-    return config
-
-config = load_config("config.json")
-
-log_file = f"{config.get("base_dir")}/addannounce_map_map.log"
-logging.basicConfig(
-    filename=log_file,
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    datefmt='%Y-%m-%d %H:%M:%S'
-)
-
-def load_config(config_file):
-    with open(config_file, 'r') as file:
-        config = json.load(file)
-    return config
+from anily import setup_logging
 
 def send_webhook(mapname, category, mapper, points, stars, webhook_url):
     stars_str = ":star:" * int(stars)
@@ -42,6 +24,8 @@ def send_webhook(mapname, category, mapper, points, stars, webhook_url):
         logging.error(f"Response: {response.text}")
 
 if __name__ == "__main__":
+    setup_logging(os.getenv('ANILY_DDRACE_ANNMAP_LOG'))
+
     if len(sys.argv) != 6:
         logging.error("Usage: announce_map.py <mapname> <category> <mapper> <points> <stars>")
         sys.exit(1)
@@ -52,6 +36,4 @@ if __name__ == "__main__":
     points = sys.argv[4]
     stars = sys.argv[5]
     
-    webhook_url = config.get("map_announce_url")
-
-    send_webhook(mapname, category, mapper, points, stars, webhook_url)
+    send_webhook(mapname, category, mapper, points, stars, os.getenv('ANILY_DDRACE_ANNMAP_WEBHOOK_URL'))

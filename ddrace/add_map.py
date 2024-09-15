@@ -65,7 +65,10 @@ def main():
 
             try:
                 with open(f"{base_dir}/types/{category}/votes.cfg", "a") as vote_file:
-                    vote_file.write(f'add_vote "{mapname}" "sv_reset_file types/{category}/flexreset.cfg; change_map \\"{category}/{mappath}\\""\n')
+                    if category is 'other':
+                        vote_file.write(f'add_vote "{mapname} | by {mapper}" "sv_reset_file types/{category}/flexreset.cfg; change_map \\"{category}/{mappath}\\""\n')
+                    else:
+                        vote_file.write(f'add_vote "{mapname}" "sv_reset_file types/{category}/flexreset.cfg; change_map \\"{category}/{mappath}\\""\n')
                 logging.info(f"Vote for map '{mapname}' added to '{category}' category.")
             except OSError as e:
                 logging.error(f"Error writing to votes.cfg: {e}")

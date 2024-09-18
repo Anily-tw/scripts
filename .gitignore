@@ -1,1 +1,7 @@
 script-venv/
+teehistorian/
+__pycache__/
+logs/
+*.log*
+*.sqlite*
+anily_server

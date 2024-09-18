@@ -1,15 +1,24 @@
 #!/bin/bash
 
-export ANILY_DDRACE_SOURCE=/home/ddnet/servers/ddrace_source
-export ANILY_DDRACE_ROOT=/home/ddnet/servers/ddrace
-export ANILY_DDRACE_SERVER_NAME=anily_server
-export ANILY_DDRACE_ADDMAP_LOG=$ANILY_DDRACE_ROOT/logs/add_map.log
-export ANILY_DDRACE_ANNMAP_LOG=$ANILY_DDRACE_ROOT/logs/announce_map.log
-export ANILY_DDRACE_ANNMAP_WEBHOOK_URL=https://discord.com/WEBHOOK_URL
-export ANILY_DDRACE_DB_HOST=localhost
-export ANILY_DDRACE_DB_SCHEME=teeworlds
-export ANILY_DDRACE_DB_USER=teeworlds
-export ANILY_DDRACE_DB_PASS=bigSecretPass
+unset ANILY_DDRACE_SOURCE && export ANILY_DDRACE_SOURCE=/home/ddnet/servers/ddrace_source
+unset ANILY_DDRACE_ROOT && export ANILY_DDRACE_ROOT=/home/ddnet/servers/ddrace
+unset ANILY_DDRACE_SERVER_NAME && export ANILY_DDRACE_SERVER_NAME=anily_server
+unset ANILY_DDRACE_ADDMAP_LOG && export ANILY_DDRACE_ADDMAP_LOG=$ANILY_DDRACE_ROOT/logs/add_map.log
+unset ANILY_DDRACE_ANNMAP_LOG && export ANILY_DDRACE_ANNMAP_LOG=$ANILY_DDRACE_ROOT/logs/announce_map.log
+unset ANILY_DDRACE_ANNMAP_WEBHOOK_URL && export ANILY_DDRACE_ANNMAP_WEBHOOK_URL=https://discord.com/WEBHOOK_URL
+unset ANILY_DDRACE_DB_HOST && export ANILY_DDRACE_DB_HOST=localhost
+unset ANILY_DDRACE_DB_SCHEME && export ANILY_DDRACE_DB_SCHEME=teeworlds
+unset ANILY_DDRACE_DB_USER && export ANILY_DDRACE_DB_USER=teeworlds
+unset ANILY_DDRACE_DB_PASS && export ANILY_DDRACE_DB_PASS=bigSecretPass
 
-export ANILY_INSTA_ROOT=/home/ddnet/servers/ddrace
-export ANILY_INSTA_SERVER_NAME=anily_server
+unset ANILY_BOT_CATEGORIES && export ANILY_BOT_CATEGORIES=souly,anime,joni,other,test
+unset ANILY_BOT_DEFAULT_MAPPER && export ANILY_BOT_DEFAULT_MAPPER=Unknown
+unset ANILY_BOT_DEFAULT_POINTS && export ANILY_BOT_DEFAULT_POINTS=0
+unset ANILY_BOT_DEFAULT_STARS && export ANILY_BOT_DEFAULT_STARS=1
+unset ANILY_BOT_LOG_CHANNEL && export ANILY_BOT_LOG_CHANNEL=1
+unset ANILY_BOT_ADMIN_ROLE_ID && export ANILY_BOT_ADMIN_ROLE_ID=1
+unset ANILY_BOT_PERMISSIONS_FILE && export ANILY_BOT_PERMISSIONS_FILE=permissions.json
+unset ANILY_BOT_TOKEN && export ANILY_BOT_TOKEN=SECRET
+
+unset ANILY_INSTA_ROOT && export ANILY_INSTA_ROOT=/home/ddnet/servers/insta
+unset ANILY_INSTA_SERVER_NAME && export ANILY_INSTA_SERVER_NAME=anily_server

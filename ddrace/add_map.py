@@ -38,7 +38,7 @@ def main():
 
     map_file_path = f"{base_dir}/maps/{category}/{mappath}.map"
     if not os.path.exists(map_file_path):
-        logging.error(f"Map '{mappath}.map' does not exist (it should be in maps/{category})")
+        logging.error(f"Map '{map_file_path}' does not exist (it should be in maps/{category})")
         sys.exit(1)
 
     connection = None
@@ -65,7 +65,7 @@ def main():
 
             try:
                 with open(f"{base_dir}/types/{category}/votes.cfg", "a") as vote_file:
-                    if category is 'other':
+                    if category == 'other':
                         vote_file.write(f'add_vote "{mapname} | by {mapper}" "sv_reset_file types/{category}/flexreset.cfg; change_map \\"{category}/{mappath}\\""\n')
                     else:
                         vote_file.write(f'add_vote "{mapname}" "sv_reset_file types/{category}/flexreset.cfg; change_map \\"{category}/{mappath}\\""\n')
